@@ -4,7 +4,7 @@
 //
 //  Created by Charles Hieger on 4/4/17.
 //  Copyright © 2017 Charles Hieger. All rights reserved.
-//
+//setup video -> https://www.youtube.com/watch?v=4VQQTLybods&feature=youtu.be&list=PLrT2tZ9JRrf7W4hoXt0cWHcvLRfvQlCKl
 
 import UIKit
 
