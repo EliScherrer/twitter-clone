@@ -17,12 +17,19 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //setup refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        //set up table view
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         
+        //get initial data
         APIManager.shared.getHomeTimeLine { (tweets, error) in
             if let tweets = tweets {
                 self.tweets = tweets
@@ -30,6 +37,18 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             } else if let error = error {
                 print("Error getting home timeline: " + error.localizedDescription)
             }
+        }
+    }
+    
+    @objc func refreshData(_ refreshControl: UIRefreshControl) {
+        APIManager.shared.getHomeTimeLine { (tweets, error) in
+            if let tweets = tweets {
+                self.tweets = tweets
+                self.tableView.reloadData()
+            } else if let error = error {
+                print("Error getting home timeline: " + error.localizedDescription)
+            }
+            refreshControl.endRefreshing()
         }
     }
     
@@ -59,15 +78,78 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         APIManager.shared.logout()
     }
     
+    @IBAction func didRetweet(_ sender: Any) {
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = view.superview as! TweetCell
+        let indexPath = tableView.indexPath(for: cell)
+        let tweet = tweets[indexPath!.row]
+        
+        
+        if tweet.retweeted == false {
+            APIManager.shared.retweet(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error retweeting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully retweeted the following Tweet: \n\(tweet.text)")
+                    self.tweets[indexPath!.row].retweetCount += 1
+                    self.tweets[indexPath!.row].retweeted = true
+                    self.tableView.reloadData()
+                }
+            }
+        } else {
+            APIManager.shared.unretweet(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unretweeting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unretweeted the following Tweet: \n\(tweet.text)")
+                    self.tweets[indexPath!.row].retweetCount -= 1
+                    self.tweets[indexPath!.row].retweeted = false
+                    cell.retweetButton.setImage(UIImage(named: "retweet-icon"), for: .normal)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @IBAction func didFavorite(_ sender: Any) {
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = view.superview as! TweetCell
+        let indexPath = tableView.indexPath(for: cell)
+        let tweet = tweets[indexPath!.row]
+        
+        print("fav status: \(tweet.favorited!)")
+        
+        if tweet.favorited! == false {
+            APIManager.shared.favorite(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error favoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully favorited the following Tweet: \n\(tweet.text)")
+                    self.tweets[indexPath!.row].favoriteCount! += 1
+                    //tweet.favorited = true
+                    self.tweets[indexPath!.row].favorited = true
+                    self.tableView.reloadData()
+                }
+            }
+        } else {
+            APIManager.shared.unfavorite(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unfavoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
+                    self.tweets[indexPath!.row].favoriteCount! -= 1
+                    self.tweets[indexPath!.row].favorited = false
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    
+    
+
     
 }

@@ -18,10 +18,10 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userHandleLabel: UILabel!
     
-    @IBOutlet weak var retweetImage: UIImageView!
+    @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var retweetCountLabel: UILabel!
     
-    @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
     var tweet: Tweet! {
@@ -31,23 +31,25 @@ class TweetCell: UITableViewCell {
             
             retweetCountLabel.text = "\(tweet.retweetCount)"
             if tweet.retweeted == true {
-                retweetImage.image = #imageLiteral(resourceName: "retweet-icon-green")
+                retweetButton.setBackgroundImage(#imageLiteral(resourceName: "retweet-icon-green"), for: UIControlState.normal)
             }
             else {
-                retweetImage.image = #imageLiteral(resourceName: "retweet-icon")
+                retweetButton.setBackgroundImage(#imageLiteral(resourceName: "retweet-icon"), for: UIControlState.normal)
             }
             
             favoriteCountLabel.text = "\(tweet.favoriteCount ?? 0)"
             if tweet.favorited == true {
-                favoriteImage.image = #imageLiteral(resourceName: "favor-icon-red")
+                favoriteButton.setBackgroundImage(#imageLiteral(resourceName: "favor-icon-red"), for: UIControlState.normal)
             }
             else {
-                favoriteImage.image = #imageLiteral(resourceName: "favor-icon")
+                favoriteButton.setBackgroundImage(#imageLiteral(resourceName: "favor-icon"), for: UIControlState.normal)
+
             }
             
             userNameLabel.text = tweet.user.name
             userHandleLabel.text = tweet.user.screenname
             profilePicture.af_setImage(withURL: tweet.user.profileUrl!)
+            
         }
     }
     
@@ -61,5 +63,10 @@ class TweetCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    
+
+    
+    
     
 }
