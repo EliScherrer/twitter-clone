@@ -17,11 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //Check for logged in user
-//        if User.current != nil {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let homeTimelineViewController = storyboard.instantiateViewController(withIdentifier: "TimelineViewController")
-//            window?.rootViewController = homeTimelineViewController
-//        }
+        if User.current != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeTimelineViewController = storyboard.instantiateViewController(withIdentifier: "TimelineViewController")
+            window?.rootViewController = homeTimelineViewController
+        }
         
         //on logout
         NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in

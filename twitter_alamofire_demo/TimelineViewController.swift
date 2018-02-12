@@ -87,9 +87,12 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         if tweet.retweeted == false {
+            self.tweets[indexPath!.row].retweeted = true
             APIManager.shared.retweet(tweet) { (tweet: Tweet?, error: Error?) in
                 if let  error = error {
                     print("Error retweeting tweet: \(error.localizedDescription)")
+                    self.tweets[indexPath!.row].retweeted = true
+
                 } else if let tweet = tweet {
                     print("Successfully retweeted the following Tweet: \n\(tweet.text)")
                     self.tweets[indexPath!.row].retweetCount += 1
@@ -98,14 +101,17 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         } else {
+            self.tweets[indexPath!.row].retweeted = false
+
             APIManager.shared.unretweet(tweet) { (tweet: Tweet?, error: Error?) in
                 if let  error = error {
                     print("Error unretweeting tweet: \(error.localizedDescription)")
+                    self.tweets[indexPath!.row].retweeted = false
+
                 } else if let tweet = tweet {
                     print("Successfully unretweeted the following Tweet: \n\(tweet.text)")
                     self.tweets[indexPath!.row].retweetCount -= 1
                     self.tweets[indexPath!.row].retweeted = false
-                    cell.retweetButton.setImage(UIImage(named: "retweet-icon"), for: .normal)
                     self.tableView.reloadData()
                 }
             }
@@ -123,9 +129,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         print("fav status: \(tweet.favorited!)")
         
         if tweet.favorited! == false {
+            self.tweets[indexPath!.row].favorited = true
+
             APIManager.shared.favorite(tweet) { (tweet: Tweet?, error: Error?) in
                 if let  error = error {
                     print("Error favoriting tweet: \(error.localizedDescription)")
+                    self.tweets[indexPath!.row].favorited = true
+
                 } else if let tweet = tweet {
                     print("Successfully favorited the following Tweet: \n\(tweet.text)")
                     self.tweets[indexPath!.row].favoriteCount! += 1
@@ -135,9 +145,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         } else {
+            self.tweets[indexPath!.row].favorited = false
+
             APIManager.shared.unfavorite(tweet) { (tweet: Tweet?, error: Error?) in
                 if let  error = error {
                     print("Error unfavoriting tweet: \(error.localizedDescription)")
+                    self.tweets[indexPath!.row].favorited = false
+
                 } else if let tweet = tweet {
                     print("Successfully unfavorited the following Tweet: \n\(tweet.text)")
                     self.tweets[indexPath!.row].favoriteCount! -= 1
