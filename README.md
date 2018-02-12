@@ -1,4 +1,4 @@
-# Project 5 - *Fwitter*
+# Project 5/6 - *Fwitter*
 
 **Fwitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
@@ -6,7 +6,7 @@ Time spent: **6** hours spent in total
 
 ## User Stories
 
-The following **required** functionality is completed:
+The following project 5 **required** functionality is completed:
 
 - [X] User sees app icon in home screen and styled launch screen
 - [X] User can sign in using OAuth login flow
@@ -16,6 +16,9 @@ The following **required** functionality is completed:
 - [X] User can pull to refresh.
 - [X] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
 - [X] Using AutoLayout, the Tweet cell should adjust it's layout for iPhone 7, Plus and SE device sizes as well as accommodate device rotation.
+
+The following project 6 **required** functionality is completed:
+
 - [ ] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 - [ ] User can compose a new tweet by tapping on a compose button.
 - [ ] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 140)
