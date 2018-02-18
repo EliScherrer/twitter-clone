@@ -254,10 +254,10 @@
             </objects>
             <point key="canvasLocation" x="2785" y="54"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose View Controller-->
         <scene sceneID="q8n-rk-Nzm">
             <objects>
-                <viewController id="t4C-AR-mLN" sceneMemberID="viewController">
+                <viewController id="t4C-AR-mLN" customClass="ComposeViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kqd-FJ-KBH"/>
                         <viewControllerLayoutGuide type="bottom" id="lxe-qG-Egg"/>
