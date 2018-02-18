@@ -22,15 +22,15 @@ The following project 6 **required** functionality is completed:
 - [ ] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 - [ ] User can compose a new tweet by tapping on a compose button.
 - [ ] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 140)
-- [ ] User can view their profile in a profile tab
-  - [ ] Contains the user header view: picture and tagline
-  - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
+- [X] User can view their profile in a profile tab
+  - [X] Contains the user header view: picture and tagline
+  - [X] Contains a section with the users basic stats: # tweets, # following, # followers
 
 The following **stretch** features are implemented:
 
-- [ ] The current signed in user will be persisted across restarts
+- [X] The current signed in user will be persisted across restarts
 - [ ] Each tweet should display the relative timestamp for each tweet "8m", "7h"
-- [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
+- [X] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [ ] Links in tweets are clickable.
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
@@ -42,7 +42,9 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Imgur](https://i.imgur.com/OUxSCWm.gif)
+Project 5 - ![Imgur](https://i.imgur.com/OUxSCWm.gif)
+
+Project 6 - ![Imgur]()
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
