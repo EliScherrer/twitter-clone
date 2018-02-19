@@ -149,6 +149,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="retweet-icon"/>
                                 <connections>
+                                    <action selector="didRetweet:" destination="vg8-Bd-D1E" eventType="touchUpInside" id="FTC-h9-jfl"/>
                                     <action selector="didRetweet:" destination="5YO-Vh-39k" eventType="touchUpInside" id="qFc-y1-Hqa"/>
                                 </connections>
                             </button>
@@ -161,6 +162,7 @@
                                 <state key="normal" backgroundImage="favor-icon"/>
                                 <connections>
                                     <action selector="didFavorite:" destination="5YO-Vh-39k" eventType="touchUpInside" id="33L-bA-KoV"/>
+                                    <action selector="didFavorite:" destination="vg8-Bd-D1E" eventType="touchUpInside" id="ze1-YI-P4Z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -879,6 +881,7 @@
         <image name="retweet-icon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="YYg-Xh-LGF"/>
         <segue reference="szJ-O1-G9q"/>
         <segue reference="yq0-mv-Vdx"/>
     </inferredMetricsTieBreakers>
