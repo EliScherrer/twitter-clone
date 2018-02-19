@@ -19,7 +19,7 @@ The following project 5 **required** functionality is completed:
 
 The following project 6 **required** functionality is completed:
 
-- [ ] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
+- [X] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 - [X] User can compose a new tweet by tapping on a compose button.
 - [X] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 140)
 - [X] User can view their profile in a profile tab
