@@ -2,7 +2,7 @@
 
 **Fwitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **6** hours spent in total
+Time spent: **9** hours spent in total
 
 ## User Stories
 
@@ -44,9 +44,9 @@ Here's a walkthrough of implemented user stories:
 
 Project 5 - ![Imgur](https://i.imgur.com/OUxSCWm.gif)
 
-Project 6 - ![Imgur]()
+Project 6 - ![Imgur](https://i.imgur.com/S0BBEBx.gif)
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
