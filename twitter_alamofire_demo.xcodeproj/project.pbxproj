@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E7686A9203A51D2006A9560 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7686A8203A51D2006A9560 /* DetailViewController.swift */; };
 		3EB164A820390A3300B3400D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB164A720390A3300B3400D /* ProfileViewController.swift */; };
 		3EB164AA20390A5900B3400D /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB164A920390A5900B3400D /* ComposeViewController.swift */; };
 		547221C96829E6F537FCE2FE /* Pods_twitter_alamofire_demoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FCA05DC47A45B9943F23F5F /* Pods_twitter_alamofire_demoUITests.framework */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		001F2EB27736B82E6AF0082B /* Pods_twitter_alamofire_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_alamofire_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E7686A8203A51D2006A9560 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3EB164A720390A3300B3400D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3EB164A920390A5900B3400D /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		3FCA05DC47A45B9943F23F5F /* Pods_twitter_alamofire_demoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_alamofire_demoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +202,7 @@
 				ED1D234B1EF6E42900C51ACC /* TimelineViewController.swift */,
 				3EB164A720390A3300B3400D /* ProfileViewController.swift */,
 				3EB164A920390A5900B3400D /* ComposeViewController.swift */,
+				3E7686A8203A51D2006A9560 /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				ED1AFD611E94496E00FD4B90 /* LoginViewController.swift in Sources */,
 				ED1AFD5F1E94421000FD4B90 /* APIManager.swift in Sources */,
 				ED1AFD311E942B2500FD4B90 /* AppDelegate.swift in Sources */,
+				3E7686A9203A51D2006A9560 /* DetailViewController.swift in Sources */,
 				3EB164A820390A3300B3400D /* ProfileViewController.swift in Sources */,
 				ED1D234C1EF6E42900C51ACC /* TimelineViewController.swift in Sources */,
 			);

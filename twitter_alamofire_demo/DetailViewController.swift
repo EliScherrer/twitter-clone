@@ -1,22 +1,23 @@
 //
-//  TweetCell.swift
+//  DetailViewController.swift
 //  twitter_alamofire_demo
 //
-//  Created by Charles Hieger on 6/18/17.
-//  Copyright © 2017 Charles Hieger. All rights reserved.
+//  Created by Eli Scherrer on 2/18/18.
+//  Copyright © 2018 Charles Hieger. All rights reserved.
 //
 
 import UIKit
 import AlamofireImage
 
-class TweetCell: UITableViewCell {
+class DetailViewController: UIViewController {
+
+    @IBOutlet weak var profilePicture: UIImageView!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userHandleLabel: UILabel!
     
     @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
-    
-    @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userHandleLabel: UILabel!
     
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var retweetCountLabel: UILabel!
@@ -24,8 +25,13 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
-    var tweet: Tweet! {
-        didSet {
+    var tweet: Tweet?
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let tweet = tweet {
             tweetTextLabel.text = tweet.text
             timestampLabel.text = tweet.createdAtString
             
@@ -43,30 +49,21 @@ class TweetCell: UITableViewCell {
             }
             else {
                 favoriteButton.setBackgroundImage(#imageLiteral(resourceName: "favor-icon"), for: UIControlState.normal)
-
+                
             }
             
             userNameLabel.text = tweet.user.name
             userHandleLabel.text = "@" + tweet.user.screenname
             profilePicture.af_setImage(withURL: tweet.user.profileUrl!)
-            
+
         }
+
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     
 
-    
-    
-    
 }

@@ -162,6 +162,19 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    //prepare for the segue to the details screen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "showDetails" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell ) {
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.tweet = tweets[indexPath.row]
+            }
+        }
+    }
+    
     
     
 

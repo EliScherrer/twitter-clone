@@ -59,16 +59,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.layer.borderColor = UIColor.black.cgColor
         tableView.layer.borderWidth = 0.5
         
-        //get initial data
-//        APIManager.shared.getUserTimeLine() { (tweets, error) in
-//            if let tweets = tweets {
-//                self.tweets = tweets
-//                self.tableView.reloadData()
-//            } else if let error = error {
-//                print("Error getting home timeline: " + error.localizedDescription)
-//            }
-//        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
